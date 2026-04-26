@@ -1,0 +1,102 @@
+[
+  {
+    "id": "EDI-2147",
+    "subject": "947 X12 mapping — IDoc to 947 path drops IT1*ADJ for negative quantities",
+    "body": "Customer rolled their 947 X12 mapping live last week. Customer support flagged that downstream WMS is rejecting messages with reason code BD (damaged) because our IDoc-to-947 path is dropping the IT1*ADJ segment when source IDoc has MENGE < 0. Reproduces every time. Affects 3-5 messages/day for this customer. Need a fix that preserves IT1*ADJ for negative qty without breaking the positive path. Customer wants ETA by Thursday.",
+    "category": "edi-mapping",
+    "severity": "medium",
+    "reporter": "BA team — Customer Onboarding",
+    "status": "open",
+    "created": "2026-04-22T10:14:00Z"
+  },
+  {
+    "id": "XCAR-9821",
+    "subject": "Add new regional carrier to existing customized xCarrier instance",
+    "body": "Customer needs to add a regional EU parcel carrier to their existing customized xCarrier instance. REST API with OAuth 2.0; docs attached. Required functions: rate quote, manifest, label generation (4x6 PDF), tracking webhook, cancellation. Volume: 2,000 shipments/month at go-live, growing to ~8,000/month within 6 months. Mid-May UAT target.",
+    "category": "xcarrier-change",
+    "severity": "medium",
+    "reporter": "Customer Logistics Operations",
+    "status": "open",
+    "created": "2026-04-23T09:02:00Z"
+  },
+  {
+    "id": "SAP-ESC-3304",
+    "subject": "P1 — SAP S/4HANA → carrier integration intermittent failure during peak hours",
+    "body": "Customer reports SAP S/4HANA-driven shipment creations failing intermittently 14:00-18:00 CET. ~8% of shipments fail with timeout errors at the SAP Cloud Connector layer. Customer at 92.4% during peak vs contractual 99.5% SLA. Need root-cause statement and fix plan by EOD April 27. Cloud Connector v2.16.4. Carriers affected: FedEx, UPS, DHL EU.",
+    "category": "escalation",
+    "severity": "urgent",
+    "reporter": "Senior Director, Professional Services",
+    "status": "open",
+    "created": "2026-04-26T08:30:00Z"
+  },
+  {
+    "id": "LOG-1188",
+    "subject": "Logistics microservice — RabbitMQ consumer memory leak",
+    "body": "Parcel-execution microservice (Java 1.8 + WebLogic) shows steady RSS growth in production over 72-hour windows. Suspect leak in the RabbitMQ consumer thread pool. Restart resolves; leak recurs. Want a heap dump analysis + a proper fix without a full WebLogic-to-Tomcat migration in scope.",
+    "category": "legacy-deployment",
+    "severity": "medium",
+    "reporter": "Engineering — Logistics",
+    "status": "in-progress",
+    "created": "2026-04-21T13:55:00Z"
+  },
+  {
+    "id": "IDX-742",
+    "subject": "Intelligent Document Extraction — accuracy drop on multi-page PO scans",
+    "body": "Internal QA flagged that extraction accuracy on multi-page purchase orders dropped from 94% to 81% in the last release window. Single-page accuracy unaffected. Suspect a regression in the page-stitching step. Need a reproducer + fix; have a customer demo on May 5.",
+    "category": "idx-extraction",
+    "severity": "high",
+    "reporter": "Engineering Lead — IDX",
+    "status": "open",
+    "created": "2026-04-24T11:20:00Z"
+  },
+  {
+    "id": "MIG-0428",
+    "subject": "Supplier Portal SQL Server → PostgreSQL — schema drift in audit log",
+    "body": "POC migration of Supplier Portal from SQL Server to PostgreSQL hit a wall on the audit_log table. Identity column behaviour differs (IDENTITY vs SERIAL/IDENTITY). Need a migration recipe that preserves existing audit_id values without gaps. Currently blocking the broader migration plan.",
+    "category": "infra-cloud",
+    "severity": "medium",
+    "reporter": "Engineering Director",
+    "status": "open",
+    "created": "2026-04-22T16:08:00Z"
+  },
+  {
+    "id": "CLD-3091",
+    "subject": "Cloud SRE — release report card automation",
+    "body": "Want to automate the end-of-release report card. Pull JIRA ticket counts by team, deploy success rate from CI, on-call paging counts, and SLO burn rate, into a single weekly report. Currently this is 4 hours of manual stitching every Friday. Same shape as the existing Jira→GitHub repo migration skill.",
+    "category": "infra-cloud",
+    "severity": "low",
+    "reporter": "VP Cloud Engineering",
+    "status": "open",
+    "created": "2026-04-25T09:45:00Z"
+  },
+  {
+    "id": "SAP-1542",
+    "subject": "BRD + test cases for FedEx REST API integration in SAP",
+    "body": "Customer change request: integrate the new FedEx REST API into their SAP shipping module. Need a BRD covering scope, dependencies, error handling, and a test case matrix. Estimate target: bottom-up by phase (discovery / build / test / deploy / support). PR-to-SOW workflow as usual.",
+    "category": "sap-request",
+    "severity": "medium",
+    "reporter": "Senior Director, Professional Services",
+    "status": "open",
+    "created": "2026-04-23T14:31:00Z"
+  },
+  {
+    "id": "XCAR-9907",
+    "subject": "Customized xCarrier deployment — SSO token mismatch after upgrade",
+    "body": "Customer's customized xCarrier instance fails SSO after the latest engine upgrade. Token issuer changed in the upstream config, but the customer-side IdP wasn't updated in sync. Need a verified rollback OR a fix to the IdP mapping. Production access required to verify.",
+    "category": "xcarrier-change",
+    "severity": "high",
+    "reporter": "PS Team — xCarrier",
+    "status": "open",
+    "created": "2026-04-25T17:22:00Z"
+  },
+  {
+    "id": "EDI-2188",
+    "subject": "X12 850 — vendor sending non-standard ST segment, fails parser",
+    "body": "Vendor's X12 850 messages include an ST segment with a non-standard transaction set ID (0850 instead of 850). Our parser strict-mode rejects them. Vendor refuses to change. Need either a tolerant parsing mode OR a pre-processor that normalizes incoming envelopes before mapping.",
+    "category": "edi-mapping",
+    "severity": "low",
+    "reporter": "EDI Team",
+    "status": "open",
+    "created": "2026-04-20T10:00:00Z"
+  }
+]

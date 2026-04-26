@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Ticket · Elemica Ticket Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="brand-name">Elemica <span class="accent">Ticket Tool</span></div>
+      <div class="brand-tag">Workshop Starter · Adva Solutions</div>
+    </div>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Inbox</a>
+      <a href="/submit.html" class="nav-link primary">Submit</a>
+    </div>
+  </header>
+
+  <div class="form-card">
+    <h2>Submit a ticket</h2>
+    <p class="lead">For the workshop, paste any anonymized real ticket from your queue. The tool will save it and you can triage it from the inbox.</p>
+
+    <form id="submit-form">
+      <div class="field">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required placeholder="947 X12 mapping — IDoc to 947 path drops IT1*ADJ for negative quantities">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option value="unknown">Unknown</option>
+            <option value="edi-mapping">EDI mapping</option>
+            <option value="xcarrier-change">XCarrier change</option>
+            <option value="sap-request">SAP request</option>
+            <option value="escalation">Escalation</option>
+            <option value="legacy-deployment">Legacy deployment</option>
+            <option value="idx-extraction">IDX extraction</option>
+            <option value="infra-cloud">Infra / cloud</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="severity">Severity</label>
+          <select id="severity" name="severity">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="reporter">Reporter</label>
+        <input type="text" id="reporter" name="reporter" placeholder="BA team — Customer Onboarding">
+      </div>
+
+      <div class="field">
+        <label for="body">Body</label>
+        <textarea id="body" name="body" rows="8" required placeholder="What's broken? What systems are involved? Who reported it?"></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Save ticket →</button>
+    </form>
+  </div>
+
+  <footer>
+    <span class="strong">Elemica Ticket Tool</span> · Submissions land in <code>data/tickets.json</code>
+  </footer>
+
+</div>
+
+<script src="/app.js"></script>
+<script>wireSubmit();</script>
+</body>
+</html>

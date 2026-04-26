@@ -1,0 +1,17 @@
+# Render auto-deploy config — see https://render.com/docs/blueprint-spec
+# When you push this repo to GitHub and connect it via render.com/new,
+# Render reads this file and provisions everything automatically.
+
+services:
+  - type: web
+    name: elemica-ticket-tool
+    runtime: node
+    plan: free                # 750 free instance hours / month
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true          # redeploy on every push to main
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: ANTHROPIC_API_KEY
+        sync: false           # set this in the Render dashboard, never in git
