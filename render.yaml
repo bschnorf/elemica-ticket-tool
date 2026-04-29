@@ -15,3 +15,7 @@ services:
         value: 20
       - key: ANTHROPIC_API_KEY
         sync: false           # set this in the Render dashboard, never in git
+      - key: APP_PASSWORD
+        sync: false           # shared password gating the UI
+      - key: SESSION_SECRET
+        sync: false           # `openssl rand -hex 32` — keep stable so logins survive restarts

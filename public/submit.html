@@ -15,17 +15,20 @@
   <header>
     <div class="brand">
       <div class="brand-name">Elemica <span class="accent">Ticket Tool</span></div>
-      <div class="brand-tag">Workshop Starter · Adva Solutions</div>
+      <div class="brand-tag">Customer Support · Engineering</div>
     </div>
     <div class="nav-links">
       <a href="/" class="nav-link">Inbox</a>
       <a href="/submit.html" class="nav-link primary">Submit</a>
+      <form method="POST" action="/logout" style="display:contents">
+        <button type="submit" class="nav-link" style="cursor:pointer;font:inherit">Log out</button>
+      </form>
     </div>
   </header>
 
   <div class="form-card">
     <h2>Submit a ticket</h2>
-    <p class="lead">For the workshop, paste any anonymized real ticket from your queue. The tool will save it and you can triage it from the inbox.</p>
+    <p class="lead">Paste a ticket from your queue. The tool saves it so you can triage it from the inbox.</p>
 
     <form id="submit-form">
       <div class="field">

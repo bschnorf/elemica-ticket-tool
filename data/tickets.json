@@ -98,5 +98,15 @@
     "reporter": "EDI Team",
     "status": "open",
     "created": "2026-04-20T10:00:00Z"
+  },
+  {
+    "id": "ADM-1001",
+    "subject": "Admin — configurable storage and dashboard display retention by Umbrella ID",
+    "body": "As an Elemica Admin, I should be able to adjust the storage retention and dashboard display retention policy per Umbrella ID.\n\nStorage Retention Policy — how long we store the Umbrella ID's data in storage.\nDashboard Display Retention Policy — how long we display the Umbrella ID's transactions in the dashboard.\n\nBoth policies should be configurable independently per Umbrella ID via the admin UI.",
+    "category": "infra-cloud",
+    "severity": "medium",
+    "reporter": "Elemica Admin",
+    "status": "open",
+    "created": "2026-04-29T00:00:00Z"
   }
 ]
